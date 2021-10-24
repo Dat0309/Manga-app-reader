@@ -1,0 +1,187 @@
+
+
+{
+  "Banners":[
+  		"https://farm5.staticflickr.com/4905/46683324341_660f16ed0f_o.png",
+  		"https://farm5.staticflickr.com/4854/32808153198_29f403338a_o.png",
+  		"https://farm8.staticflickr.com/7854/39718376383_2ef44143ff_o.png"
+  ]
+  ,	
+  "Comic": [
+     	{
+	    	"Name":"Doraemon",
+	      	"Image": "https://avt.mkklcdnv3.com/avatar_225/1279-doraemon.jpg",
+	      	"Category":"Comedy,Adventure",
+	      	"Chapters":[
+	      		{
+	      			"Name": "Vol.1 Chapter 1 : All The Way From A Future World",
+	      			"Links": [
+	      				"https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/2.jpg",
+             			"https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/3.jpg",
+             			"https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/4.jpg",
+             			"https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/5.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/6.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/7.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/8.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/9.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/10.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/11.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/12.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/13.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/14.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/15.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/16.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/17.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/18.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/19.jpg",
+			             "https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol1_chapter_1_all_the_way_from_a_future_world/20.jpg"
+	      			]
+	      		},
+	      		{
+          				"Name": "Vol 0 chapter 1.1",
+          				"Links": [
+             				"https://s8.mkklcdnv8.com/mangakakalot/d2/doraemon/vol0_chapter_11/3.jpg"
+         						]
+        		},
+        		{
+        	"Name":"Vol.1 chapter 2 : Prophecy Of Doraemon"
+        },
+        {
+        	"Name":"Vol.1 chapter 3 : Transforming Biscuit"
+        },
+        {
+        	"Name":"Vol.1 chapter 4 : Operation: Secret Spy"
+        },
+        {
+        	"Name":"Vol.1 chapter 5 : Kobe Abe"
+        },
+        {
+        	"Name":"Vol.1 chapter 6 : Antique Competition"
+        },
+         {
+        	"Name":"Vol.1 chapter 7 : Peko Peko Grasshopper"
+        },
+         {
+        	"Name":"Vol.1 chapter 8 : Chin Up To The Ancestors"
+        },
+        {
+        	"Name":"Vol.1 chapter 9 : Hunting Shades"
+        },
+         {
+        	"Name":"Vol.1 chapter 10 : Flattering Lipsticks"
+        },
+        {
+        	"Name":"Vol.1 chapter 11 : Full Points For Once In A Life Time"
+        },
+        {
+        	"Name":"Doraemon vol.1 chapter 12 : Operation: Propose"
+        },
+        {
+        	"Name":"Vol.1 chapter 13 : OO Will ^ ^ With XX"
+        },
+        {
+        	"Name":"Vol.1 chapter 14 : Hot Hot In The Snow"
+        },
+        {
+        	"Name":"Vol.1 chapter 15 : A Ghost Of The Lamp's Smoke"
+        },
+        {
+        	"Name":"Doraemon vol.1 chapter 16 : Run! Uma-Take"
+        }
+	      	]
+    	},
+    	{
+    	"Name":"Dragon Ball",
+ 	"Image": "https://avt.mkklcdnv3.com/avatar_225/3326-read_dragon_ball_manga_online_for_free2.jpg",
+      "Category":"Action,Adventure",
+      "Chapters": [
+        {
+        	"Name":"Chapter 1 : Bloomers and the Monkey King"
+        },
+        {
+        	"Name":"Chapter 2 : No Balls!!"
+        },
+        {
+        	"Name":"Chapter 3 : Sea Monkeys"
+        },
+         {
+        	"Name":"Chapter 4 : They Call Him the Turtle Hermit!"
+        },
+        {
+        	"Name":"Chapter 5 : Oo! Oo! Oolong!"
+        },
+        {
+        	"Name":"Chapter 6 : So Longm OoLong!!"
+        },
+        {
+        	"Name":"Chapter 7 :Yamcha and Pu'ar"
+        },
+        {
+        	"Name":"Chapter 8 : One, Two,Yamcha-cha"
+        }
+      ]
+    },
+    {
+    	"Name": "The Amazing Spider-Man (1963)",
+      "Image": "https://2.bp.blogspot.com/UyIClw5KWvyrIHioRjGeqaX3BdNRLF0jdlZTHesIxLZy6zX9zOwY26UrF6w5j_v5rGakyQxdPfoi=s1600",
+      "Category":"Action,Adventure"
+    },
+    {
+    	"Name": "Spider-Man",
+      "Image": "https://avt.mkklcdnv3.com/avatar_225/11297-spiderman.jpg"
+    },
+    {
+    	"Name": "The Invincible Iron Man",
+      "Image": "https://cdn.shopify.com/s/files/1/0882/5118/products/Invincible-Iron-Man-Number-1-2137789_1024x1024.jpeg?v=1442250415"
+    },
+    {
+    	"Name": "Ant-Man & The Wasp",
+      "Image": "https://i.pinimg.com/originals/66/41/b1/6641b10b731f0140a90c5a7fa641daf9.jpg"
+    },
+     {
+    	"Name": "Marvel Zombies",
+      "Image": "http://1.bp.blogspot.com/-vNUqD-HUcdQ/Vp5GXqrP7fI/AAAAAAAAIEE/OSIFYvS3D7k/s1600/0.jpg"
+    },
+ {
+    	"Name": "Super Hero Adventures",
+      "Image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWBY9fuCKhnDI-wwoXwJ6zF1O6x9ELBaE7Y4YwAK1LahojieB"
+    },
+     {
+    	"Name": "Cable",
+      "Image": "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/494347/494347._SX1280_QL80_TTD_.jpg"
+    },
+     {
+    	"Name": "X-Force",
+      "Image": "https://ss-images.catscdn.vn/2018/05/31/2921811/x-men_92_vol_1_3_textless.jpg"
+    },
+    {
+    	"Name": "Avengers",
+      "Image": "https://www.librairiezbookstore.com/40046-large_default/marvel-comics-digest-7-ant-man.jpg"
+    },
+    {
+    	"Name": "Thor",
+      "Image": "https://i1.wp.com/graphicpolicy.com/wp-content/uploads/2017/10/MarvelComicsDigest_03-1.jpg?resize=736%2C991&ssl=1"
+    },
+     {
+    	"Name": "X-men Wolverine",
+      "Image": "https://darksidecomics.s3.us-east-2.amazonaws.com/previews/AUG181583.jpg?lastmod=1533154926"
+    },
+     {
+    	"Name": "DC Essential Graphic Novels 2016",
+      "Image": "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/332255/332255._SX1280_QL80_TTD_.jpg"
+    },
+    {
+    	"Name": "Aqua Man",
+      "Image": "https://d1466nnw0ex81e.cloudfront.net/n_iv/600/3723215.jpg"
+    },
+    {
+    	"Name": "Variant Covers",
+      "Image": "https://insightcomics.com/wp-content/uploads/2018/09/76348-64734-cover.jpg"
+    },
+    {
+    	"Name": "Batman",
+      "Image": "http://4.bp.blogspot.com/-UVWO6oyjJqU/U_3jLJzL3MI/AAAAAAAEnhQ/_SyLqkLRvVo/s1600/-000.jpg"
+    }
+
+  ]
+}
