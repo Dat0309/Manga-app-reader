@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">Manga Reader App</string>
     <string name="home">Home</string>
-    <string name="manga">Mang</string>
+    <string name="manga">Manga</string>
     <string name="novel">Novel</string>
     <string name="audio">Audio</string>
-    <string name="nav_home">Home</string>
-    <string name="nav_fav">Favorite</string>
-    <string name="nav_account">Account</string>
-    <string name="nav_profile">Profile</string>
-    <string name="nav_chancePass">Chance password</string>
-    <string name="nav_logout">Logout</string>
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_fav">Truyện ưa thích</string>
+    <string name="nav_account">Tài khoản</string>
+    <string name="nav_profile">Hồ sơ</string>
+    <string name="nav_chancePass">Đổi mật khẩu</string>
+    <string name="nav_logout">Đăng xuất</string>
+    <string name="nav_type">Thể loại</string>
 </resources>

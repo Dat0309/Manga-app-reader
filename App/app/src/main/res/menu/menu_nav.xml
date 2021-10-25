@@ -11,6 +11,11 @@
             android:icon="@drawable/ic_baseline_favorite_24"
             android:title="@string/nav_fav" />
 
+        <item
+            android:id="@+id/nav_type"
+            android:icon="@drawable/ic_baseline_ballot_24"
+            android:title="@string/nav_type" />
+
     </group>
 
     <item android:title="@string/nav_account">

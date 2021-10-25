@@ -1,6 +1,8 @@
 package com.dinhtrongdat.mangareaderapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import com.bumptech.glide.Glide;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.dinhtrongdat.mangareaderapp.DetailManga;
 import com.dinhtrongdat.mangareaderapp.R;
 import com.dinhtrongdat.mangareaderapp.model.BannerManga;
 
@@ -52,7 +55,9 @@ public class BannerAdapter extends PagerAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, listBanner.get(position).getName(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, DetailManga.class);
+                intent.putExtra("banner", listBanner.get(position));
+                context.startActivity(intent);
             }
         });
 

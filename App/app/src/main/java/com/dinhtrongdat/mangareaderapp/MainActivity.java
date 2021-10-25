@@ -14,6 +14,7 @@ import com.dinhtrongdat.mangareaderapp.adapter.BannerAdapter;
 import com.dinhtrongdat.mangareaderapp.adapter.MangaAdapter;
 import com.dinhtrongdat.mangareaderapp.model.BannerManga;
 import com.dinhtrongdat.mangareaderapp.model.Manga;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     List<BannerManga> listMangaBanner;
     List<Manga> listManga;
     DatabaseReference databaseReference;
+    AppBarLayout appBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,18 @@ public class MainActivity extends AppCompatActivity {
     private void initUI() {
         UploadBanner();
         UploadItem();
+    }
+
+    private void initToolbarAnimation() {
+        appBar = findViewById(R.id.app_bar);
+        appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if(Math.abs(verticalOffset) > 100){
+                    invalidateOptionsMenu();
+                }
+            }
+        });
     }
 
     private void UploadItem() {
