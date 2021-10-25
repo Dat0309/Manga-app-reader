@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Manga Reader App</string>
+    <string name="home">Home</string>
+    <string name="manga">Mang</string>
+    <string name="novel">Novel</string>
+    <string name="audio">Audio</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_fav">Favorite</string>
+    <string name="nav_account">Account</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_chancePass">Chance password</string>
+    <string name="nav_logout">Logout</string>
 </resources>
