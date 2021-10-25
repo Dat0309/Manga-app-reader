@@ -1,2 +1,3 @@
 # Manga-app-reader
-Ứng dụng đọc Manga cho điện thoại Android
+# Ứng dụng đọc Manga cho điện thoại Android
+![image](https://github.com/Dat0309/Manga-app-reader/blob/main/MainScreen.png)
