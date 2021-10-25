@@ -17,10 +17,12 @@ import java.util.List;
 public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ViewHolderChapter> {
     Context context;
     List<Chapter> listChapter;
+    final private OnItemChapterClick mOnClick;
 
-    public ChapterAdapter(Context context, List<Chapter> listChapter) {
+    public ChapterAdapter(Context context, List<Chapter> listChapter, OnItemChapterClick mOnClick) {
         this.context = context;
         this.listChapter = listChapter;
+        this.mOnClick = mOnClick;
     }
 
     @Override
@@ -40,12 +42,23 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ViewHold
         return listChapter.size();
     }
 
-    public class ViewHolderChapter extends RecyclerView.ViewHolder {
+    public static interface OnItemChapterClick{
+        void onChapterItemClick(int clickedItemIndex);
+    }
+
+    public class ViewHolderChapter extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView txtChapter;
 
         public ViewHolderChapter(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             txtChapter = itemView.findViewById(R.id.txtItemChapter);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getAdapterPosition();
+            mOnClick.onChapterItemClick(clickedPosition);
         }
     }
 }

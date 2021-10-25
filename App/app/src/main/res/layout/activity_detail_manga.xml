@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".DetailManga">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="250dp">
-
         <ImageView
             android:id="@+id/imgDetail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY" />
+            android:scaleType="fitCenter"
+            android:layout_gravity="center"/>
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_main"
@@ -24,14 +23,29 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/bg_gradient"
             app:layout_collapseMode="pin">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imgBack"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_baseline_arrow_back_24" />
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    android:layout_centerVertical="true"/>
+                <ImageView
+                    android:id="@+id/imgFav"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_baseline_favorite_border_24"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"/>
+            </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
+
     </FrameLayout>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,7 +54,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/txtNameDetail"
@@ -53,6 +68,41 @@
                 android:textColor="@color/white"
                 android:textSize="35sp"
                 android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnStart"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_button"
+                    android:textColor="@color/white"
+                    android:text="Start"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/antic"
+                    android:textStyle="bold"
+                    android:textSize="20dp"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnShare"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_button_red"
+                    android:textColor="@color/white"
+                    android:text="Share"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/antic"
+                    android:textStyle="bold"
+                    android:textSize="20dp"/>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcv_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -82,7 +132,7 @@
                 android:id="@+id/rcv_chapter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/item_chapter"/>
+                tools:listitem="@layout/item_chapter" />
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

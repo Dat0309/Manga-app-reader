@@ -20,10 +20,12 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.ViewHolderMa
 
     Context context;
     List<Manga> listManga;
+    final private OnItemMangaClick mOnClick;
 
-    public MangaAdapter(Context context, List<Manga> listManga) {
+    public MangaAdapter(Context context, List<Manga> listManga, OnItemMangaClick mOnClick) {
         this.context = context;
         this.listManga = listManga;
+        this.mOnClick = mOnClick;
     }
 
     @Override
@@ -44,15 +46,25 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.ViewHolderMa
         return listManga.size();
     }
 
-    public class ViewHolderMangar extends RecyclerView.ViewHolder {
+    public static interface OnItemMangaClick{
+        void onMangaItemClick(int clickedItemIndex);
+    }
+
+    public class ViewHolderMangar extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imgManga;
         TextView txtName;
 
         public ViewHolderMangar(@NonNull View itemView) {
             super(itemView);
-
+            itemView.setOnClickListener(this);
             imgManga = itemView.findViewById(R.id.img_manga);
             txtName = itemView.findViewById(R.id.txtName);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getAdapterPosition();
+            mOnClick.onMangaItemClick(clickedPosition);
         }
     }
 }

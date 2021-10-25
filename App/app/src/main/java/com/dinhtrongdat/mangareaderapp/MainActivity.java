@@ -6,9 +6,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.dinhtrongdat.mangareaderapp.adapter.BannerAdapter;
 import com.dinhtrongdat.mangareaderapp.adapter.MangaAdapter;
@@ -23,13 +22,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import dmax.dialog.SpotsDialog;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MangaAdapter.OnItemMangaClick {
     BannerAdapter bannerAdapter;
     RecyclerView rcvItem;
     MangaAdapter mangaAdapter;
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     List<Manga> listManga;
     DatabaseReference databaseReference;
     AppBarLayout appBar;
+    String[] category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setMangaAdapter(List<Manga> listManga) {
         rcvItem = findViewById(R.id.rcv_item);
-        mangaAdapter = new MangaAdapter(MainActivity.this, listManga);
+        mangaAdapter = new MangaAdapter(MainActivity.this, listManga, this);
         mangaAdapter.notifyDataSetChanged();
 
         rcvItem.setLayoutManager(new GridLayoutManager(this,2));
@@ -140,6 +141,13 @@ public class MainActivity extends AppCompatActivity {
         Timer autoSlider = new Timer();
         autoSlider.schedule(new AutoSlider(listMangaBanner),4000, 6000);
         tabIndicater.setupWithViewPager(viewPager, true);
+    }
+
+    @Override
+    public void onMangaItemClick(int clickedItemIndex) {
+        Intent intent = new Intent(MainActivity.this, DetailManga.class);
+        intent.putExtra("manga", listManga.get(clickedItemIndex));
+        startActivity(intent);
     }
 
     public class AutoSlider extends TimerTask {

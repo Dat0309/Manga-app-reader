@@ -1,30 +1,38 @@
 package com.dinhtrongdat.mangareaderapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.dinhtrongdat.mangareaderapp.adapter.ChapterAdapter;
+import com.dinhtrongdat.mangareaderapp.adapter.TagAdapter;
 import com.dinhtrongdat.mangareaderapp.model.BannerManga;
 import com.dinhtrongdat.mangareaderapp.model.Chapter;
 import com.dinhtrongdat.mangareaderapp.model.Manga;
+import com.dinhtrongdat.mangareaderapp.model.Tag;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class DetailManga extends AppCompatActivity {
+public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnItemChapterClick {
 
-    ImageView imgDetail;
+    ImageView imgDetail, imgBack;
     TextView txtName;
     Manga manga;
     BannerManga bannerManga;
+    TagAdapter tagAdapter;
+    List<Tag> tags;
     ChapterAdapter chapterAdapter;
     List<Chapter> listChapter;
-    RecyclerView rcvChapter;
+    RecyclerView rcvChapter, rcvTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,21 +46,67 @@ public class DetailManga extends AppCompatActivity {
         imgDetail = findViewById(R.id.imgDetail);
         txtName = findViewById(R.id.txtNameDetail);
         rcvChapter = findViewById(R.id.rcv_chapter);
+        rcvTag = findViewById(R.id.rcv_tag);
+        imgBack = findViewById(R.id.imgBack);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         LoadDetail();
     }
 
     private void LoadDetail() {
         bannerManga = (BannerManga) getIntent().getSerializableExtra("banner");
+        manga = (Manga) getIntent().getSerializableExtra("manga");
+        tags = new ArrayList<>();
         if(bannerManga != null){
             Glide.with(this).load(bannerManga.getImage()).into(imgDetail);
             txtName.setText(bannerManga.getName().toString());
             listChapter = bannerManga.getChapters();
 
-            chapterAdapter = new ChapterAdapter(this, listChapter);
+            chapterAdapter = new ChapterAdapter(this, listChapter, this);
             chapterAdapter.notifyDataSetChanged();
             rcvChapter.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
             rcvChapter.setAdapter(chapterAdapter);
+
+            String[] tag = bannerManga.getCategory().split("/");
+            for(String cate : tag){
+                tags.add(new Tag(cate));
+            }
+            tagAdapter = new TagAdapter(this, tags);
+            tagAdapter.notifyDataSetChanged();
+            rcvTag.setLayoutManager(new GridLayoutManager(this,4));
+            rcvTag.setAdapter(tagAdapter);
         }
+        else if(manga != null){
+            Glide.with(this).load(manga.getImage()).into(imgDetail);
+            txtName.setText(manga.getName().toString());
+            listChapter = manga.getChapters();
+
+            chapterAdapter = new ChapterAdapter(this, listChapter, this);
+            chapterAdapter.notifyDataSetChanged();
+            rcvChapter.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+            rcvChapter.setAdapter(chapterAdapter);
+
+            String[] tag = manga.getCategory().split("/");
+            for(String cate : tag){
+                tags.add(new Tag(cate));
+            }
+            tagAdapter = new TagAdapter(this, tags);
+            tagAdapter.notifyDataSetChanged();
+            rcvTag.setLayoutManager(new GridLayoutManager(this,4));
+            rcvTag.setAdapter(tagAdapter);
+        }
+    }
+
+    @Override
+    public void onChapterItemClick(int clickedItemIndex) {
+        Intent intent = new Intent(DetailManga.this, ViewMangaActivity.class);
+        intent.putExtra("chapter", listChapter.get(clickedItemIndex));
+        startActivity(intent);
     }
 }
