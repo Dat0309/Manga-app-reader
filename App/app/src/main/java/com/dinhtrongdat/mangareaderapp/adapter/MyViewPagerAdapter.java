@@ -31,7 +31,7 @@ public class MyViewPagerAdapter extends PagerAdapter {
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
 
-        return view.equals(0);
+        return view == object;
     }
 
     @Override

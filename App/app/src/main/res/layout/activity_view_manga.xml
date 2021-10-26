@@ -29,17 +29,18 @@
                 android:gravity="center_horizontal"
                 android:text="NO PAGE"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/antic"/>
-            <View
-                android:id="@+id/chapter_next"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/ic_baseline_chevron_right_24"
+                android:fontFamily="@font/antic"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="60dp"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/logo"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="10dp"/>
-
+                android:layout_centerVertical="true"/>
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>

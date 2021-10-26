@@ -15,7 +15,7 @@ public class ViewMangaActivity extends AppCompatActivity implements View.OnClick
 
     ViewPager viewPager;
     TextView txtChapterName;
-    View back, next;
+    View back;
     Chapter chapter;
 
     @Override
@@ -31,21 +31,18 @@ public class ViewMangaActivity extends AppCompatActivity implements View.OnClick
         viewPager = findViewById(R.id.viewPager);
         txtChapterName = findViewById(R.id.txtCurrentChapter);
         back = findViewById(R.id.chapter_back);
-        next = findViewById(R.id.chapter_next);
         txtChapterName.setText(chapter.getName());
 
         fetchhLinks(chapter);
 
         back.setOnClickListener(this);
-        next.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case  R.id.chapter_back:
-                break;
-            case R.id.chapter_next:
+                finish();
                 break;
         }
     }
