@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +26,7 @@ import java.util.List;
 
 public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnItemChapterClick {
 
-    ImageView imgDetail, imgBack;
+    ImageView imgDetail, imgBack,imgBackground;
     TextView txtName;
     Manga manga;
     BannerManga bannerManga;
@@ -50,6 +51,7 @@ public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnI
         rcvChapter = findViewById(R.id.rcv_chapter);
         rcvTag = findViewById(R.id.rcv_tag);
         imgBack = findViewById(R.id.imgBack);
+        imgBackground = findViewById(R.id.imgBackground);
 
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +69,7 @@ public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnI
         tags = new ArrayList<>();
         if(bannerManga != null){
             Glide.with(this).load(bannerManga.getImage()).into(imgDetail);
+            Glide.with(this).load(bannerManga.getImage()).into(imgBackground);
             txtName.setText(bannerManga.getName().toString());
             listChapter = bannerManga.getChapters();
 
@@ -92,6 +95,7 @@ public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnI
         }
         else if(manga != null){
             Glide.with(this).load(manga.getImage()).into(imgDetail);
+            Glide.with(this).load(manga.getImage()).into(imgBackground);
             txtName.setText(manga.getName().toString());
             listChapter = manga.getChapters();
 
