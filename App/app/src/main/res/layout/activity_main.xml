@@ -32,7 +32,7 @@
                     android:orientation="vertical">
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="250dp">
+                        android:layout_height="300dp">
                         <androidx.viewpager.widget.ViewPager
                             android:id="@+id/bannerViewPager"
                             android:layout_width="match_parent"
@@ -107,12 +107,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcv_item"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"/>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

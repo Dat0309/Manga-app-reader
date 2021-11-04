@@ -34,12 +34,12 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
     RecyclerView rcvItem;
     MangaAdapter mangaAdapter;
     ViewPager viewPager;
-    TabLayout tabIndicater;
-    List<BannerManga> listMangaBanner;
-    List<Manga> listManga;
+    TabLayout tabIndicater, tabCategory;
+    List<BannerManga> listBanner;
+    List<Manga> listAll,listManga, listNovel;
     DatabaseReference databaseReference;
     AppBarLayout appBar;
-    String[] category;
+    String TAB = "HOME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
 
         alertDialog.show();
         listManga = new ArrayList<>();
+        listAll = new ArrayList<>();
+        listNovel = new ArrayList<>();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Comic");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -82,11 +84,45 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
                 for(DataSnapshot data : snapshot.getChildren()){
                     Manga manga = data.getValue(Manga.class);
                     String[] category = manga.getCategory().split("/");
-                    if(category[0].equals("Manga")){
+                    listAll.add(manga);
+                    if (category[0].compareTo("Manga")==0)
                         listManga.add(manga);
-                    }
+                    if(category[0].compareTo("Novel")==0)
+                        listNovel.add(manga);
                 }
-                setMangaAdapter(listManga);
+                setMangaAdapter(listAll);
+
+                tabCategory.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+                    @Override
+                    public void onTabSelected(TabLayout.Tab tab) {
+                        switch (tab.getPosition()){
+                            case 0:
+                                TAB = "HOME";
+                                setMangaAdapter(listAll);
+                                break;
+                            case 1:
+                                TAB = "MANGA";
+                                setMangaAdapter(listManga);
+                                break;
+                            case 2:
+                                TAB = "NOVEL";
+                                setMangaAdapter(listNovel);
+                                break;
+                            case 3:
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onTabUnselected(TabLayout.Tab tab) {
+
+                    }
+
+                    @Override
+                    public void onTabReselected(TabLayout.Tab tab) {
+
+                    }
+                });
                 alertDialog.dismiss();
             }
 
@@ -107,7 +143,8 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
     }
 
     private void UploadBanner(){
-        listMangaBanner = new ArrayList<>();
+        tabCategory = findViewById(R.id.tabCategory);
+        listBanner = new ArrayList<>();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Banners");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -116,11 +153,9 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
                 for(DataSnapshot data : snapshot.getChildren()){
                     BannerManga bannerManga = data.getValue(BannerManga.class);
                     String[] category = bannerManga.getCategory().split("/");
-                    if(category[0].equals("Manga")){
-                        listMangaBanner.add(bannerManga);
-                    }
+                    listBanner.add((bannerManga));
                 }
-                setBannerAdapter(listMangaBanner);
+                setBannerAdapter(listBanner);
             }
 
             @Override
@@ -146,7 +181,13 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
     @Override
     public void onMangaItemClick(int clickedItemIndex) {
         Intent intent = new Intent(MainActivity.this, DetailManga.class);
-        intent.putExtra("manga", listManga.get(clickedItemIndex));
+        if(TAB=="HOME")
+            intent.putExtra("manga", listAll.get(clickedItemIndex));
+        if(TAB=="MANGA")
+            intent.putExtra("manga", listManga.get(clickedItemIndex));
+        if(TAB=="NOVEL")
+            intent.putExtra("manga", listNovel.get(clickedItemIndex));
+
         startActivity(intent);
     }
 
