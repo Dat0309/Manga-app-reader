@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MangaReaderApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ViewMangaActivity"></activity>
+        <activity android:name=".ViewNovelActivity"></activity>
+        <activity android:name=".ViewMangaActivity" />
         <activity android:name=".DetailManga" />
         <activity android:name=".MainActivity">
             <intent-filter>

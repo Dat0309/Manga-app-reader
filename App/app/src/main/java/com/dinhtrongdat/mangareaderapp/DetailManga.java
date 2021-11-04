@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.dinhtrongdat.mangareaderapp.adapter.ChapterAdapter;
@@ -33,6 +34,7 @@ public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnI
     ChapterAdapter chapterAdapter;
     List<Chapter> listChapter;
     RecyclerView rcvChapter, rcvTag;
+    String TAG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,12 @@ public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnI
             rcvChapter.setAdapter(chapterAdapter);
 
             String[] tag = bannerManga.getCategory().split("/");
+            if(tag[0].compareTo("Manga")==0) {
+                TAG = "MANGA";
+            }
+            else if(tag[0].compareTo("Novel")==0) {
+                TAG = "NOVEL";
+            }
             for(String cate : tag){
                 tags.add(new Tag(cate));
             }
@@ -93,6 +101,12 @@ public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnI
             rcvChapter.setAdapter(chapterAdapter);
 
             String[] tag = manga.getCategory().split("/");
+            if(tag[0].compareTo("Manga")==0) {
+                TAG = "MANGA";
+            }
+            else if(tag[0].compareTo("Novel")==0) {
+                TAG = "NOVEL";
+            }
             for(String cate : tag){
                 tags.add(new Tag(cate));
             }
@@ -105,8 +119,15 @@ public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnI
 
     @Override
     public void onChapterItemClick(int clickedItemIndex) {
-        Intent intent = new Intent(DetailManga.this, ViewMangaActivity.class);
-        intent.putExtra("chapter", listChapter.get(clickedItemIndex));
-        startActivity(intent);
+        if(TAG=="MANGA") {
+            Intent intent = new Intent(DetailManga.this, ViewMangaActivity.class);
+            intent.putExtra("chapter", listChapter.get(clickedItemIndex));
+            startActivity(intent);
+        }
+        else if(TAG=="NOVEL") {
+            Intent intent = new Intent(DetailManga.this, ViewNovelActivity.class);
+            intent.putExtra("novel", listChapter.get(clickedItemIndex));
+            startActivity(intent);
+        }
     }
 }
