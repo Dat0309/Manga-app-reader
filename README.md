@@ -5,3 +5,4 @@
 ![image](https://github.com/Dat0309/Manga-app-reader/blob/main/NovelTab.png)
 ![image](https://github.com/Dat0309/Manga-app-reader/blob/main/Update%20Detail.png)
 ![image](https://github.com/Dat0309/Manga-app-reader/blob/main/ViewNovel.png)
+![image](https://github.com/Dat0309/Manga-app-reader/blob/main/AudioBook.png)
