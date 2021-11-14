@@ -85,6 +85,9 @@ public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnI
             else if(tag[0].compareTo("Novel")==0) {
                 TAG = "NOVEL";
             }
+            else if(tag[0].compareTo("AudioBook")==0) {
+                TAG = "AUDIO";
+            }
             for(String cate : tag){
                 tags.add(new Tag(cate));
             }
@@ -110,6 +113,8 @@ public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnI
             }
             else if(tag[0].compareTo("Novel")==0) {
                 TAG = "NOVEL";
+            }else if(tag[0].compareTo("AudioBook")==0) {
+                TAG = "AUDIO";
             }
             for(String cate : tag){
                 tags.add(new Tag(cate));
@@ -131,6 +136,11 @@ public class DetailManga extends AppCompatActivity implements ChapterAdapter.OnI
         else if(TAG=="NOVEL") {
             Intent intent = new Intent(DetailManga.this, ViewNovelActivity.class);
             intent.putExtra("novel", listChapter.get(clickedItemIndex));
+            startActivity(intent);
+        }else if(TAG=="AUDIO") {
+            Intent intent = new Intent(DetailManga.this, AudioBook_Activity.class);
+            intent.putExtra("audio", listChapter.get(clickedItemIndex));
+            intent.putExtra("detail_audio", manga);
             startActivity(intent);
         }
     }

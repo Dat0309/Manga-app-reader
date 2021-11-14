@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
     ViewPager viewPager;
     TabLayout tabIndicater, tabCategory;
     List<BannerManga> listBanner;
-    List<Manga> listAll,listManga, listNovel;
+    List<Manga> listAll,listManga, listNovel, listAudio;
     DatabaseReference databaseReference;
     AppBarLayout appBar;
     String TAB = "HOME";
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
         listManga = new ArrayList<>();
         listAll = new ArrayList<>();
         listNovel = new ArrayList<>();
+        listAudio = new ArrayList<>();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Comic");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -89,6 +90,8 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
                         listManga.add(manga);
                     if(category[0].compareTo("Novel")==0)
                         listNovel.add(manga);
+                    if(category[0].compareTo("AudioBook")==0)
+                        listAudio.add(manga);
                 }
                 setMangaAdapter(listAll);
 
@@ -109,6 +112,8 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
                                 setMangaAdapter(listNovel);
                                 break;
                             case 3:
+                                TAB = "AUDIO";
+                                setMangaAdapter(listAudio);
                                 break;
                         }
                     }
@@ -187,6 +192,8 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
             intent.putExtra("manga", listManga.get(clickedItemIndex));
         if(TAB=="NOVEL")
             intent.putExtra("manga", listNovel.get(clickedItemIndex));
+        if(TAB=="AUDIO")
+            intent.putExtra("manga", listAudio.get(clickedItemIndex));
 
         startActivity(intent);
     }
