@@ -2,10 +2,13 @@ package com.dinhtrongdat.mangareaderapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
     DatabaseReference databaseReference;
     AppBarLayout appBar;
     String TAB = "HOME";
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +54,25 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
     }
 
     private void initUI() {
+        searchView = findViewById(R.id.edtSearch);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         UploadBanner();
         UploadItem();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mangaAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mangaAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
     }
 
     private void initToolbarAnimation() {
@@ -182,6 +203,8 @@ public class MainActivity extends AppCompatActivity implements MangaAdapter.OnIt
         autoSlider.schedule(new AutoSlider(listMangaBanner),4000, 6000);
         tabIndicater.setupWithViewPager(viewPager, true);
     }
+
+
 
     @Override
     public void onMangaItemClick(int clickedItemIndex) {
